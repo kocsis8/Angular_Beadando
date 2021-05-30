@@ -1,0 +1,23 @@
+
+    <div fxLayout="column" fxFlexFill class="flex-container">
+      <div class="header"></div>
+      <mat-toolbar color="primary" class="fixed-navbar mat-elevation-z10">
+        <button mat-button  
+        [routerLink]="'/'">
+        Főoldal
+      </button>
+        <button mat-button *ngFor="let item of categories" 
+            [routerLink]="[ item.url ]">
+            {{item.title}}
+          </button>
+    
+          <span class="fill-space"></span>
+        
+      </mat-toolbar>
+    
+
+    
+      <mat-toolbar color="primary" class="fixed-navbar mat-elevation-z10" class="footer">
+          <p> © {{year}} </p>
+      </mat-toolbar>
+    </div> 

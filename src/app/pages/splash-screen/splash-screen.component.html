@@ -1,0 +1,6 @@
+<div class="splash-category">
+    <mat-card *ngFor="let item of categories" matRipple  appOnHover
+      [routerLink]="[ item.url ]">
+      {{ item.title }}
+    </mat-card>
+  </div>
