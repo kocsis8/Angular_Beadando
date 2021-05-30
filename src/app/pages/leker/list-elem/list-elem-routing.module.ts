@@ -1,12 +1,13 @@
-import { LekerComponent} from './leker.component';
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ListElemComponent } from './list-elem.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: LekerComponent,
-        data: { title: 'Lekér' }
+        component: ListElemComponent,
+        data: { title: 'feltoltes' }
     }
 ];
 
@@ -14,4 +15,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule],
 })
-export class LekerRoutingModule { }
+export class ListElemRoutingModule { }

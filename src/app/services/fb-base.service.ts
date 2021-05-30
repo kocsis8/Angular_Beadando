@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { async } from 'rxjs';
+import { Observable } from 'rxjs';
 import { QuestionnaireResponse } from '../shared/models/QuestionnaireResponse ';
 
 @Injectable({
@@ -17,11 +17,13 @@ export class FbBaseService {
     return uid;
   }
 
-    // tslint:disable-next-line: typedef
-    weakAdd(collectionName: string, data: QuestionnaireResponse) {
-      return this.afs.collection(collectionName).add(data).then(
-        result => { console.log(result); }, err => { console.log(err); }).finally(() => { console.log('finally'); });
-    }
+  delete(collectionName: string, id: string){
+    return this.afs.collection(collectionName).doc(id).delete();
+  }
+
+  get(collectionName: string) : Observable<QuestionnaireResponse[]>{
+    return this.afs.collection(collectionName).valueChanges() as Observable<QuestionnaireResponse[]>;
+  }
 }
 
 

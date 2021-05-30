@@ -14,8 +14,8 @@ const routes: Routes = [
             },
             {
                 path: 'leker',
-                loadChildren: () => import('./../leker/leker.module').then(m => m.LekerModule),
-            },
+                loadChildren: () => import('./../leker/list-elem/list-elem.module').then(m => m.ListElemModule),
+            }, 
             {
                 path: 'feltolt',
                 loadChildren: () => import('./../feltolt/feltolt.module').then(m => m.FeltoltModule),
@@ -25,7 +25,7 @@ const routes: Routes = [
                 loadChildren: () => import('./../modosit/modosit.module').then(m => m.ModositModule),
             } 
 
-        ],
+        ], 
     },
 ];
 

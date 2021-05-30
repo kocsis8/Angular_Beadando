@@ -1,0 +1,26 @@
+<mat-card *ngIf="bejegyzes">
+    <mat-card-header>
+        <mat-card-title>
+            <div *ngIf="bejegyzes.subject; else elseBlock">
+                <div *ngIf="bejegyzes.subject.display">
+                      {{bejegyzes.subject.display}}
+                </div>
+            </div>
+            <ng-template #elseBlock>
+            
+            </ng-template>
+        </mat-card-title>
+        <mat-card-subtitle>
+            {{bejegyzes.id}}<br>
+            {{bejegyzes.status}}
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div *ngIf="bejegyzes.item">
+            <div *ngFor="let item of bejegyzes.item">{{item.text}}</div>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button  (click)='deleteElem(bejegyzes.id)' >Törlés</button>
+    </mat-card-actions>
+</mat-card>

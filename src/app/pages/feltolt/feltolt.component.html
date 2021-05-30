@@ -1,18 +1,57 @@
-<p>huioerhueh</p>
-<!-- <form [formGroup]="form">
-    <h3>Játék felvétel</h3>
-    <mat-form-field class="max-width">
-      <mat-label>Cím</mat-label>
-      <input matInput placeholder="Pl. Fortnite" focus formControlName="title" required>
-    </mat-form-field>
-    <mat-form-field class="max-width">
-      <mat-label>Leírás</mat-label>
-      <textarea placeholder="KEKW" formControlName="description" matInput cdkTextareaAutosize
-        cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5"></textarea>
-    </mat-form-field>
-    <div style="display: flex; justify-content: flex-end;">
-      <button mat-button  class="margin-right">MÉGSEM</button>
-      <button mat-button[disabled]="form.invalid">FELVÉTEL</button>
-    </div>
+<form [formGroup]="form" (ngSubmit)="mentes()" >
+  
+  <mat-vertical-stepper [linear]="isLinear"  #myForm>
+
+    <mat-step [stepControl]="form">
+      <form [formGroup]="form">
+        <ng-template matStepLabel>Addja meg a nevet</ng-template>
+        <mat-form-field>
+          <mat-label>Név</mat-label>
+          <div formGroupName="subject">
+          <input matInput placeholder="Pl: Példa Péter" formControlName="display" required>
+        </div>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Következő</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="form">
+      <form [formGroup]="form">
+        <ng-template matStepLabel>Addja meg a állapotot</ng-template>
+        <mat-form-field> 
+            <mat-select [(ngModel)]="selectedValue" formControlName="status">
+                <mat-option *ngFor="let elem of stat" [value]="elem.value" required>
+                  {{elem.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Köbetkező</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="form">
+        <form [formGroup]="form">
+          <ng-template matStepLabel>Addjon leírást (nem kötelező)</ng-template>
+            <textarea matInput
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="5">
+          </textarea>
+          <div>
+            <button mat-button matStepperNext>Köbetkező</button>
+          </div>
+        </form>
+      </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Save</ng-template>
+      <div>
+        <button mat-button type="submit">Mentés</button>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
   </form>
-   -->
