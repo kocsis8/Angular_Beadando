@@ -12,7 +12,7 @@ const routes: Routes = [
                 path: 'splash',
                 loadChildren: () => import('./../splash-screen/splash-screen.module').then(m => m.SplashScreenModule),
             },
-      /*       {
+            {
                 path: 'leker',
                 loadChildren: () => import('./../leker/leker.module').then(m => m.LekerModule),
             },
@@ -23,7 +23,7 @@ const routes: Routes = [
             {
                 path: 'modosit',
                 loadChildren: () => import('./../modosit/modosit.module').then(m => m.ModositModule),
-            } */
+            } 
 
         ],
     },
